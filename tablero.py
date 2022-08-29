@@ -35,9 +35,8 @@ class Tablero:
             x, y = disparo
             t[x][y] = '*'
         # 3. Colocar los barcos
-        if not ocultarBarcos:
-            for barco in self.posicionesBarcos:
-                barco.dibujar(t, self.disparos)
+        for barco in self.posicionesBarcos:
+            barco.dibujar(t, self.disparos, ocultarBarcos)
         # 4. Imprimir tablero
         s = "+---" * 10 + "+\n"
         for y in range(10):
@@ -57,4 +56,4 @@ if __name__ == '__main__':
     tab.posicionarBarco(b2)
     tab.recibirDisparo(2, 5)
     tab.recibirDisparo(5, 2)
-    tab.dibujar(ocultarBarcos=False)
+    tab.dibujar(ocultarBarcos=True)

@@ -31,8 +31,19 @@ class Barco:
     def hundido(self, disparos):
         return all(self.impactos(disparos))
 
-    def dibujar(self, t, disparos):
-        pass
+    # Dibuja el barco en el tablero. Recibe t
+    # como una matriz para rellenar con sus
+    # posiciones y disparos como una lista de
+    # tuplas con las coordenadas de cada disparo.
+    def dibujar(self, t, disparos, ocultar=False):
+        horz, vert = self.orientacion
+        for k in range(self.longitud):
+            x = self.columna + k*horz
+            y = self.fila + k*vert
+            if (x,y) in disparos:
+                t[x][y] = 'X'
+            elif not ocultar:
+                t[x][y] = 'O'
 
 
 
