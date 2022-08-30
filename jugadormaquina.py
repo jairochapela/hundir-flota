@@ -27,4 +27,7 @@ class JugadorMaquina(Jugador):
                     pass
 
     def jugar(self):
-        pass
+        fila = random.randrange(10)
+        columna = random.randrange(10)
+        return fila, columna
+        

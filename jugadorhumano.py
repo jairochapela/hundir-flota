@@ -25,4 +25,6 @@ class JugadorHumano(Jugador):
                     print(error)
     
     def jugar(self):
-        pass
+        fila = int(input("Fila> "))
+        columna = int(input("Columna> "))
+        return fila, columna

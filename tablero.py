@@ -8,8 +8,13 @@ class Tablero:
         self.disparos = []
 
     def posicionarBarco(self, barco):
+        # Comprobar solapamiento
+        for b in self.posicionesBarcos:
+            if b.espacioOcupado(barco):
+                raise ValueError("Barco mal posicionado")
+        # Si no hay solapamiento, colocamos el barco
         self.posicionesBarcos.append(barco)
-        #TODO: comprobar solapamiento
+        
 
     def recibirDisparo(self, fila, columna):
         if fila < 0 or fila >=10\

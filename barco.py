@@ -10,7 +10,8 @@ class Barco:
 
         horz,vert = orientacion
 
-        if fila not in range(0, 10-vert*longitud) or columna not in range(0, 10-horz*longitud):
+        if fila not in range(0, 10-vert*(longitud-1)) \
+        or columna not in range(0, 10-horz*(longitud-1)):
             raise ValueError("Posicion no válida")
 
         self.fila = fila
@@ -25,6 +26,15 @@ class Barco:
         celdas = [(self.columna + horz*k, self.fila + vert*k) 
             for k in range(self.longitud)]
         return [c in disparos for c in celdas]
+
+    # Comprueba si el espacio de este barco está
+    # ocupado por otro barco.
+    def espacioOcupado(self, barco):
+        horz,vert = self.orientacion
+        celdas = [(self.columna + j, self.fila + i)
+            for j in range(-1,horz*self.longitud+2)
+            for i in range(-1,vert*self.longitud+2)]
+        return any(barco.impactos(celdas))
 
     # Un barco está hundido si todas sus posiciones
     # fueron tocadas
