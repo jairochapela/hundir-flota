@@ -1,5 +1,5 @@
 from barco import Barco
-
+from colorama import Fore
 
 class Tablero:
 
@@ -38,7 +38,7 @@ class Tablero:
         # 2. Dibujar los disparos
         for disparo in self.disparos:
             x, y = disparo
-            t[x][y] = '*'
+            t[x][y] = Fore.CYAN+'*'+Fore.RESET
         # 3. Colocar los barcos
         for barco in self.posicionesBarcos:
             barco.dibujar(t, self.disparos, ocultarBarcos)

@@ -1,3 +1,5 @@
+from colorama import Fore
+
 class Barco:
 
     # Estas constantes definen el avance de
@@ -51,9 +53,9 @@ class Barco:
             x = self.columna + k*horz
             y = self.fila + k*vert
             if (x,y) in disparos:
-                t[x][y] = 'X'
+                t[x][y] = Fore.RED+'X'+Fore.RESET
             elif not ocultar:
-                t[x][y] = 'O'
+                t[x][y] = Fore.GREEN+'O'+Fore.RESET
 
 
 

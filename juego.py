@@ -7,7 +7,7 @@ class Juego:
 
     def __init__(self):
         self.jugadores = [
-            JugadorHumanoRandom("Alice", self),
+            JugadorHumano("Alice", self),
             JugadorMaquina("Bob", self)
         ]
         self.tableros = [
