@@ -1,3 +1,4 @@
+from conversorcoordenadas import convertir_coordenadas
 from jugador import Jugador
 from barco import Barco
 
@@ -10,8 +11,7 @@ class JugadorHumano(Jugador):
             while True:
                 try:
                     print("Coloque barco de tamaño", s)
-                    fila = int(input("Fila>"))
-                    columna = int(input("Columna>"))
+                    fila, columna = convertir_coordenadas(input("Coordenadas [A-J][1-10]> "))
                     orientacion = input("Orientación(H|V)>").upper()
                     if orientacion=='H':
                         barco = Barco(fila, columna, s, Barco.HORIZONTAL)
@@ -20,11 +20,11 @@ class JugadorHumano(Jugador):
                     else:
                         raise ValueError("Orientación no válida")
                     tablero.posicionarBarco(barco)
+                    tablero.dibujar(ocultarBarcos=False)
                     break
                 except Exception as error:
                     print(error)
     
     def jugar(self):
-        fila = int(input("Fila> "))
-        columna = int(input("Columna> "))
+        fila, columna = convertir_coordenadas(input("Coordenadas [A-J][1-10]> "))
         return fila, columna

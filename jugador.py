@@ -9,3 +9,6 @@ class Jugador:
 
     def jugar(self, columna, fila):
         pass
+
+    def __str__(self):
+        return self.nombre

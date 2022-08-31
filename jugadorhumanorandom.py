@@ -1,4 +1,3 @@
-from jugador import Jugador
 from jugadorhumano import JugadorHumano
 from jugadormaquina import JugadorMaquina
 

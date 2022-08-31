@@ -28,7 +28,7 @@ class Juego:
             self.tableros[1].dibujar(True)
             while True:
                 try:
-                    x,y = self.jugadores[self.turno].jugar()
+                    y, x = self.jugadores[self.turno].jugar()
                     self.disparar(fila=y,columna=x)
                     break
                 except Exception as error:

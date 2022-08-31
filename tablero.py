@@ -43,12 +43,19 @@ class Tablero:
         for barco in self.posicionesBarcos:
             barco.dibujar(t, self.disparos, ocultarBarcos)
         # 4. Imprimir tablero
-        s = "+---" * 10 + "+\n"
+        letras = "ABCDEFGHIJ"
+        s = "+---" * 11 + "+\n"
+        s += "|   "
+        for x in range(10):
+            s += f"|{str(x+1).rjust(2)} "
+        s += "|\n"
+        s += "+---" * 11 + "+\n"
         for y in range(10):
+            s += f"| {letras[y]} "
             for x in range(10):
                 s += "| " + t[x][y] + " "
             s += "|\n"
-            s += "+---" * 10 + "+\n"
+            s += "+---" * 11 + "+\n"
         print(s)
 
 
