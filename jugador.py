@@ -1,5 +1,10 @@
 
 class Jugador:
+    '''
+    Clase abstracta de jugador.
+    Simplemente representa un jugador que no tiene
+    definido comportamiento alguno.
+    '''
     def __init__(self, nombre, partida):
         self.nombre = nombre
         self.partida = partida
